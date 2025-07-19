@@ -1,0 +1,30 @@
+@import "tailwindcss";
+/* Özel Animasyon Tanımı */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+/* Animasyonu Kullanacak Özel Sınıf */
+.animate-custom-fade-in-up {
+  animation: fadeInUp 1.5s ease-out forwards;
+}
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 40s linear infinite;
+}
