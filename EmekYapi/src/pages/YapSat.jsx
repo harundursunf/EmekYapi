@@ -37,7 +37,7 @@ const ProjectCard = ({ project }) => {
 
 function YapSat() {
   const projects = [
-    { id: 1, image: '/x1.jpg', title: 'Emek Vadi Konakları', location: 'İstanbul, Çekmeköy', status: 'Satışta', area: '180 m²', rooms: '3+1 Dubleks', description: 'Doğayla iç içe, modern ve lüks bir yaşam sunan projemiz, geniş sosyal donatıları ve eşsiz mimarisiyle öne çıkıyor.' },
+    { id: 1, image: '/x1.jpg', title: 'Emek Yapı Konakları', location: 'İstanbul, Çekmeköy', status: 'Satışta', area: '180 m²', rooms: '3+1 Dubleks', description: 'Doğayla iç içe, modern ve lüks bir yaşam sunan projemiz, geniş sosyal donatıları ve eşsiz mimarisiyle öne çıkıyor.' },
     { id: 2, image: '/x1.jpg', title: 'Marina Rezidans', location: 'İzmir, Mavişehir', status: 'Tamamlandı', area: '125 m²', rooms: '2+1', description: 'Deniz manzaralı, akıllı ev teknolojileriyle donatılmış, şehrin merkezinde prestijli bir yaşam alanı.' },
     { id: 3, image: '/x1.jpg', title: 'Ankara Loft', location: 'Ankara, Çankaya', status: 'Satışta', area: '95 m²', rooms: '1+1', description: 'Başkentin kalbinde, minimalist tasarımı ve fonksiyonel iç mekanlarıyla modern profesyoneller için tasarlandı.' },
     { id: 4, image: '/x1.jpg', title: 'Çamlıca Villaları', location: 'İstanbul, Üsküdar', status: 'Tamamlandı', area: '320 m²', rooms: '5+2 Tripleks', description: 'Geleneksel mimariyi modern konforla birleştiren, İstanbul manzaralı özel aile villaları.' },
