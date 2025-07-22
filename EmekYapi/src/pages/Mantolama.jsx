@@ -1,9 +1,11 @@
-import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { Shield, Paintbrush, Gem, Layers3, Trees, LandPlot, CheckCircle, ArrowRight } from 'lucide-react';
+// Dosya: src/pages/Mantolama.jsx (Güncellenmiş Hali)
 
-// "Önce & Sonra" Slider Bileşeni
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+
+// BeforeAfterSlider bileşeni aynı kalabilir...
 const BeforeAfterSlider = ({ before, after, title }) => {
     const [sliderPosition, setSliderPosition] = React.useState(50);
     const handleMove = (e) => {
@@ -27,20 +29,30 @@ const BeforeAfterSlider = ({ before, after, title }) => {
     );
 };
 
-// YENİ YARDIMCI FONKSİYON: Metni URL uyumlu hale getirir
+// YARDIMCI FONKSİYON: Metni URL uyumlu hale getirir (Türkçe karakter destekli)
 const slugify = (text) => {
   return text
     .toString()
     .toLowerCase()
-    .replace(/\s+/g, '-')           // Boşlukları - ile değiştir
-    .replace(/[^\w\-]+/g, '')       // Alfanümerik olmayan karakterleri kaldır
-    .replace(/\-\-+/g, '-')         // Birden çok - varsa tek - yap
-    .replace(/^-+/, '')             // Baştaki - işaretini temizle
-    .replace(/-+$/, '');            // Sondaki - işaretini temizle
+    .replace(/\s+/g, '-')       // Boşlukları - ile değiştir
+    .replace(/&/g, 've')        // & karakterini 've' ile değiştir
+    .replace(/ı/g, 'i')         // Türkçe karakterleri çevir
+    .replace(/ğ/g, 'g')
+    .replace(/ü/g, 'u')
+    .replace(/ş/g, 's')
+    .replace(/ö/g, 'o')
+    .replace(/ç/g, 'c')
+    .replace(/[^\w\-]+/g, '')   // Alfanümerik olmayan karakterleri kaldır
+    .replace(/\-\-+/g, '-')     // Birden çok - varsa tek - yap
+    .replace(/^-+/, '')         // Baştaki - işaretini temizle
+    .replace(/-+$/, '');        // Sondaki - işaretini temizle
 };
 
-// Hizmet Kartı Bileşeni
+// Hizmet Kartı Bileşeni (Basitleştirilmiş Hali)
 const ServiceCard = ({ service, index }) => {
+    // ✅ DEĞİŞİKLİK: Link artık her zaman başlığın slug halidir.
+    const linkTo = `/${slugify(service.title)}`;
+
     return (
         <motion.div
             className="group relative h-96 w-full overflow-hidden rounded-xl shadow-lg"
@@ -56,9 +68,8 @@ const ServiceCard = ({ service, index }) => {
                     <p className="mt-1 text-sm text-gray-200">{service.tag}</p>
                 </div>
                 <div className="mt-4">
-                    {/* DEĞİŞİKLİK BURADA: Link 'to' prop'u güncellendi */}
                     <Link 
-                        to={`/mantolama/${slugify(service.title)}`} 
+                        to={linkTo} 
                         className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-gray-900 bg-yellow-400 rounded-md opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300"
                     >
                         Detayları Gör <ArrowRight size={16} />
@@ -69,8 +80,8 @@ const ServiceCard = ({ service, index }) => {
     );
 };
 
+
 function Mantolama() {
-    // Buton stilleri
     const primaryButtonClasses = "inline-flex items-center justify-center gap-3 px-8 py-3 font-semibold text-gray-900 bg-yellow-400 rounded-lg shadow-sm hover:bg-yellow-500 hover:-translate-y-0.5 transform transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2";
 
     const services = [
@@ -84,6 +95,7 @@ function Mantolama() {
 
     return (
         <div className="bg-white text-slate-800 pt-[116px]">
+            {/* Sayfanın geri kalanı aynı kalabilir... */}
             <section className="bg-slate-50 py-24 text-center">
                 <motion.div className="container mx-auto px-6" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
                     <h1 className="text-5xl font-bold tracking-tight text-slate-900 md:text-7xl">Dönüşümün Gücü</h1>

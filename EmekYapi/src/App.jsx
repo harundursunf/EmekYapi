@@ -1,13 +1,14 @@
-// Dosya: src/App.jsx
+// Dosya: src/App.jsx (Güncellenmiş Hali)
 
 import React from 'react';
-// BrowserRouter buradan kaldırıldı, çünkü main.jsx içinde zaten var.
 import { Routes, Route } from 'react-router-dom';
 
-// Bileşenleri ve sayfaları import edelim
+// Temel Bileşenler
 import ScrollToTop from './Components/ScrollToTop';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
+
+// Ana Sayfalar
 import Anasayfa from './Components/Anasayfa';
 import Mantolama from './pages/Mantolama';
 import YapSat from './pages/YapSat';
@@ -19,22 +20,24 @@ import TadilatDekorasyon from './pages/TadilatDekorasyon';
 import MimariDanismanlik from './pages/MimariDanismanlik';
 import Iletisim from './pages/Iletisim';
 
+// ✅ YENİ: Tüm hizmet sayfalarını import edin
+import DisCepheMantolama from './pages/DisCepheMantolama';
+import TadilatBoya from './pages/TadilatBoya';
+import DekoratifSiva from './pages/DekoratifSiva';
+import FileliSiva from './pages/FileliSiva';
+import CevreDuzenleme from './pages/CevreDuzenleme';
+import PeyzajIsleri from './pages/PeyzajIsleri';
+
+
 function App() {
   return (
-    // BrowserRouter etiketleri buradan kaldırıldı.
-    // Uygulama yapısı doğrudan bir div veya Fragment ile başlayabilir.
     <>
-      {/* 2. ADIM: ScrollToTop bileşeni, Rotaların dışında ama Router'ın 
-        (main.jsx'teki) içinde kalacak şekilde buraya yerleştirilir. 
-        Böylece her sayfa değiştiğinde çalışır.
-      */}
       <ScrollToTop />
-
       <div className="flex flex-col min-h-screen bg-gray-800 text-white">
         <Header />
         <main className="flex-grow">
-          {/* 3. ADIM: Rotalarınız burada tanımlanır. */}
           <Routes>
+            {/* Mevcut Rotalarınız */}
             <Route path="/" element={<Anasayfa />} />
             <Route path="/mantolama" element={<Mantolama />} />
             <Route path="/yapsat" element={<YapSat />} />
@@ -45,6 +48,15 @@ function App() {
             <Route path="/tadilat-dekorasyon" element={<TadilatDekorasyon />} />
             <Route path="/mimari-danismanlik" element={<MimariDanismanlik />} />
             <Route path="/iletisim" element={<Iletisim />} />
+
+            {/* ✅ DEĞİŞİKLİK: Dinamik rota yerine her hizmet için ayrı bir statik rota */}
+            <Route path="/dis-cephe-mantolama" element={<DisCepheMantolama />} />
+            <Route path="/tadilat-ve-boya" element={<TadilatBoya />} />
+            <Route path="/dekoratif-siva" element={<DekoratifSiva />} />
+            <Route path="/fileli-siva" element={<FileliSiva />} />
+            <Route path="/cevre-duzenleme" element={<CevreDuzenleme />} />
+            <Route path="/peyzaj-isleri" element={<PeyzajIsleri />} />
+            
           </Routes>
         </main>
         <Footer />
