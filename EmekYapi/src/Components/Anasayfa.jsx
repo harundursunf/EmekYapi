@@ -56,32 +56,11 @@ function Anasayfa() {
         { id: 3, image: '/resim4.webp', title: 'İstanbul Konut Projesi: Modern ve Estetik Cepheler', tags: ['Konut', 'Mantolama', 'Türkiye'], link: '/projeler/istanbul-konut' }
     ];
 
-    // GÜNCELLEME: Hizmetler listesi isteğiniz doğrultusunda değiştirildi.
     const services = [
-        {
-            image: '/mantolama-min.png',
-            title: 'Dış Cephe Mantolama',
-            subtitle: 'Enerji Verimliliği ve Estetik',
-            link: '/dis-cephe-mantolama'
-        },
-        {
-            image: '/tadilatboya-min.png',
-            title: 'Tadilat & Boya',
-            subtitle: 'Yenileme ve Değer Katma',
-            link: '/tadilat-ve-boya'
-        },
-        {
-            image: '/Dekoratifsiva-min.png',
-            title: 'Dekoratif Sıva',
-            subtitle: 'Sanatsal ve Eşsiz Yüzeyler',
-            link: '/dekoratif-siva'
-        },
-        {
-            image: '/filelisiva-min.png',
-            title: 'Fileli Sıva',
-            subtitle: 'Dayanıklılık ve Sağlam Zemin',
-            link: '/fileli-siva'
-        }
+        { image: '/mantolama-min.png', title: 'Dış Cephe Mantolama', subtitle: 'Enerji Verimliliği ve Estetik', link: '/dis-cephe-mantolama' },
+        { image: '/tadilatboya-min.png', title: 'Tadilat & Boya', subtitle: 'Yenileme ve Değer Katma', link: '/tadilat-ve-boya' },
+        { image: '/Dekoratifsiva-min.png', title: 'Dekoratif Sıva', subtitle: 'Sanatsal ve Eşsiz Yüzeyler', link: '/dekoratif-siva' },
+        { image: '/filelisiva-min.png', title: 'Fileli Sıva', subtitle: 'Dayanıklılık ve Sağlam Zemin', link: '/fileli-siva' }
     ];
 
     const partners = [
@@ -115,6 +94,8 @@ function Anasayfa() {
                 <div className={`relative z-10 p-4 text-white transition-all duration-1000 ease-out ${heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}><h1 className="text-5xl font-bold tracking-tight md:text-8xl">{projectName}</h1><p className="mt-4 text-2xl text-gray-200">Hayatınızın manzarası, evim dediğiniz yerde.</p></div>
             </section>
 
+            {/* Diğer bölümler aynı kalabilir... */}
+            
             {/* BÖLÜM 2: VİZYON */}
             <section ref={visionRef} className="py-24 bg-gray-50">
                 <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
@@ -129,7 +110,7 @@ function Anasayfa() {
                 <div className="absolute bottom-0 left-0 right-0 p-8 bg-black/30 backdrop-blur-md"><div className="container mx-auto flex justify-between items-end"><motion.div key={currentIndex} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }} className="w-full md:w-1/2"><h2 className="text-3xl md:text-4xl font-bold">{slides[currentIndex].title}</h2><p className="mt-2 text-base md:text-lg text-gray-300">{slides[currentIndex].description}</p></motion.div><div className="hidden md:flex items-center gap-6"><div className="font-mono text-xl"><span className="font-bold">{String(currentIndex + 1).padStart(2, '0')}</span><span className="text-gray-400 mx-2">/</span><span className="text-gray-400">{String(slides.length).padStart(2, '0')}</span></div><div className="flex items-center gap-2"><button onClick={goToPrevious} aria-label="Önceki Slayt" className="p-3 border border-white/30 rounded-full hover:bg-white/10 transition-colors"><ArrowLeft size={20} /></button><button onClick={goToNext} aria-label="Sonraki Slayt" className="p-3 border border-white/30 rounded-full hover:bg-white/10 transition-colors"><ArrowRight size={20} /></button></div></div></div></div>
                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/20"><motion.div className="h-full bg-white" style={{ transformOrigin: 'left' }} initial={{ scaleX: 0 }} animate={progressControls} /></div>
             </section>
-
+            
             {/* BÖLÜM 4: HAKKIMIZDA */}
             <section ref={aboutRef} className="py-24 bg-white overflow-hidden">
                 <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -152,7 +133,7 @@ function Anasayfa() {
                 </div>
             </section>
 
-            {/* BÖLÜM 5: HİZMETLER VE ÇÖZÜMLER (GÜNCELLENDİ) */}
+            {/* BÖLÜM 5: HİZMETLER VE ÇÖZÜMLER */}
             <section ref={detailsRef} className="py-24 bg-gray-50">
                 <div className="container mx-auto px-6">
                     <div className={`text-center transition-all duration-1000 ease-out ${detailsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -161,7 +142,6 @@ function Anasayfa() {
                     </div>
 
                     <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {/* GÜNCELLEME: Hizmet kartları yeni liste ile map ediliyor. */}
                         {services.map((service, index) => (
                             <div
                                 key={index}
@@ -169,21 +149,18 @@ function Anasayfa() {
                                 style={{ transitionDelay: `${index * 100}ms` }}
                             >
                                 <div className="group relative h-96 w-full overflow-hidden rounded-xl shadow-lg">
-                                    <img
-                                        src={service.image}
-                                        alt={service.title}
-                                        className="absolute h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                        loading="lazy"
-                                    />
+                                    <img src={service.image} alt={service.title} className="absolute h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
                                     <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/30 to-transparent p-6">
                                         <div>
                                             <h3 className="text-2xl font-bold text-white">{service.title}</h3>
                                             <p className="mt-1 text-sm text-gray-200">{service.subtitle}</p>
                                         </div>
                                         <div className="mt-4">
+                                            {/* GÜNCELLEME: Mobil uyumluluk için className değiştirildi. */}
                                             <Link
                                                 to={service.link}
-                                                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-gray-900 bg-yellow-400 rounded-md opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300"
+                                                // 👈 DEĞİŞTİRİLEN SATIR
+                                                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-gray-900 bg-yellow-400 rounded-md transform transition-all duration-300 opacity-100 md:opacity-0 translate-y-0 md:translate-y-4 group-hover:translate-y-0 group-hover:opacity-100"
                                             >
                                                 Keşfet <ArrowRight size={16} />
                                             </Link>
@@ -196,6 +173,8 @@ function Anasayfa() {
                 </div>
             </section>
 
+            {/* Diğer bölümler aynı kalabilir... */}
+            
             {/* BÖLÜM 6: ÖNE ÇIKAN PROJELER */}
             <section ref={projectsRef} className="py-24 bg-white">
                 <div className="container mx-auto px-6">
