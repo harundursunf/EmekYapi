@@ -60,7 +60,7 @@ const DekoratifSiva = () => {
     };
 
     return (
-        <div className="bg-slate-50 text-slate-800 pt-[116px] overflow-x-hidden">
+        <div className="bg-slate-50 text-slate-800 pt-[46px] overflow-x-hidden">
              <AnimatePresence>
                 {selectedTexture && <Lightbox texture={selectedTexture} onClose={() => setSelectedTexture(null)} />}
             </AnimatePresence>

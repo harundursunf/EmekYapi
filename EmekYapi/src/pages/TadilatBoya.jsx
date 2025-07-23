@@ -85,7 +85,7 @@ const TadilatBoya = () => {
     const [activeTab, setActiveTab] = useState('Salon');
 
     return (
-        <div className="bg-stone-50 text-stone-900 pt-[116px] overflow-x-hidden">
+        <div className="bg-stone-50 text-stone-900 pt-[46px] overflow-x-hidden">
 
             {/* BÖLÜM 1: GİRİŞ */}
             <header className="bg-white">

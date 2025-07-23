@@ -90,10 +90,10 @@ const DisCepheMantolama = () => {
     ];
 
     return (
-        <div className="bg-slate-50 text-slate-900 pt-[116px] overflow-x-hidden">
+        <div className="bg-slate-50 text-slate-900 pt-[45px] overflow-x-hidden">
 
             {/* BÖLÜM 1: GİRİŞ */}
-            <header className="relative bg-white text-center py-24 sm:py-32 px-6">
+            <header className="relative text-center py-24 sm:py-32 px-6">
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: `url('/resim6.webp')`, backgroundSize: 'cover', backgroundPosition: 'center'}}></div>
                  <div className="absolute inset-0 bg-gradient-to-b from-white via-white/90 to-slate-50"></div>
                 <div className="relative z-10 max-w-4xl mx-auto">
