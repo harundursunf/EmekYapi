@@ -59,25 +59,25 @@ function Anasayfa() {
     // GÜNCELLEME: Hizmetler listesi isteğiniz doğrultusunda değiştirildi.
     const services = [
         {
-            image: '/mantolama.png',
+            image: '/mantolama-min.png',
             title: 'Dış Cephe Mantolama',
             subtitle: 'Enerji Verimliliği ve Estetik',
             link: '/dis-cephe-mantolama'
         },
         {
-            image: '/tadilatboya.png',
+            image: '/tadilatboya-min.png',
             title: 'Tadilat & Boya',
             subtitle: 'Yenileme ve Değer Katma',
             link: '/tadilat-ve-boya'
         },
         {
-            image: '/Dekoratifsiva.png',
+            image: '/Dekoratifsiva-min.png',
             title: 'Dekoratif Sıva',
             subtitle: 'Sanatsal ve Eşsiz Yüzeyler',
             link: '/dekoratif-siva'
         },
         {
-            image: '/filelisiva.png',
+            image: '/filelisiva-min.png',
             title: 'Fileli Sıva',
             subtitle: 'Dayanıklılık ve Sağlam Zemin',
             link: '/fileli-siva'
@@ -147,7 +147,7 @@ function Anasayfa() {
                         </div>
                     </motion.div>
                     <motion.div className="w-full h-full" initial={{ opacity: 0, scale: 0.9 }} animate={aboutInView ? { opacity: 1, scale: 1 } : {}} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }} >
-                        <img src="/emek.png" alt="Tecrübeli Ekip" className="w-full h-full object-cover rounded-xl shadow-2xl aspect-square" loading="lazy" />
+                        <img src="/emek-min.png" alt="Tecrübeli Ekip" className="w-full h-full object-cover rounded-xl shadow-2xl aspect-square" loading="lazy" />
                     </motion.div>
                 </div>
             </section>
