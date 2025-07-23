@@ -57,11 +57,12 @@ const CevreDuzenleme = () => {
                 <div className="container mx-auto px-6 py-16 sm:py-20">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <motion.div variants={fadeIn} initial="hidden" animate="visible">
+                            {/* YAZI GÜNCELLENDİ */}
                             <motion.h1 variants={fadeIn} className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tighter !leading-tight text-slate-900">
-                                Alan Potansiyeli, <span className="text-red-800">Net Vizyon.</span>
+                                Fonksiyonel ve Estetik <span className="text-red-800">Çevre Çözümleri.</span>
                             </motion.h1>
                             <motion.p variants={fadeIn} className="mt-5 max-w-xl text-lg text-slate-600">
-                                Çevre düzenlemesini bir inşaat faaliyeti olarak değil, yaşam kalitesini ve mülk değerini doğrudan şekillendiren bir mühendislik sanatı olarak ele alıyoruz.
+                                Çevre düzenlemesi, yaşam kalitesini ve mülk değerini doğrudan etkileyen kapsamlı bir mühendislik ve tasarım disiplinidir. Projelerinize bu bütüncül yaklaşımla değer katıyoruz.
                             </motion.p>
                              <motion.div variants={fadeIn} className="mt-8">
                                 <Link 
@@ -86,7 +87,8 @@ const CevreDuzenleme = () => {
             <section className="py-16 sm:py-24 bg-slate-100">
                 <div className="container mx-auto px-6">
                     <div className="max-w-3xl mb-12">
-                        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Yetkinliklerimiz</h2>
+                        {/* YAZI GÜNCELLENDİ */}
+                        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Temel Yetkinliklerimiz</h2>
                         <p className="mt-3 text-lg text-slate-600">Yapısal ve bitkisel peyzajın tüm disiplinlerinde, entegre ve anahtar teslim çözümler sunuyoruz.</p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
@@ -114,18 +116,19 @@ const CevreDuzenleme = () => {
             <section className="py-16 sm:py-24 bg-white">
                 <div className="container mx-auto px-6">
                      <div className="max-w-3xl mx-auto text-center mb-12">
+                        {/* YAZI GÜNCELLENDİ */}
                         <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Proje Yaklaşımımız</h2>
-                        <p className="mt-3 text-lg text-slate-600">Sonuca giden yol, sürecin kendisi kadar önemlidir. Şeffaflık ve mükemmeliyetçilik üzerine kurulu 4 adımlı bir süreç izliyoruz.</p>
+                        <p className="mt-3 text-lg text-slate-600">Başarılı bir projenin temelinde, doğru planlanmış bir süreç yatar. Şeffaflık ve teknik yeterlilik üzerine kurulu 4 adımlı proje sürecimiz:</p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
                         <ApproachStepCard number="01" title="Analiz ve Konsept Geliştirme">
-                            Proje sahasının teknik analizini yapar, müşteri beklentilerini dinler ve ilk konsept fikirlerini oluştururuz.
+                            Proje sahasının zemin, drenaj ve topografya gibi teknik analizlerini yapar, ihtiyaçlarınızı anlayarak ön konsepti geliştiririz.
                         </ApproachStepCard>
                         <ApproachStepCard number="02" title="Tasarım ve 3D Görselleştirme">
-                            Onaylanan konsepti detaylı uygulama projelerine ve 3D modellere dönüştürerek projenin bitmiş halini sunarız.
+                            Geliştirilen konsepti, detaylı uygulama çizimlerine ve projenin bitmiş halini net olarak görebileceğiniz 3D görsellere dönüştürürüz.
                         </ApproachStepCard>
                         <ApproachStepCard number="03" title="Uygulama ve Proje Yönetimi">
-                            Saha yönetimi, malzeme tedariği ve kalite kontrol süreçlerini yürüterek projeyi hassasiyetle hayata geçiririz.
+                            Saha organizasyonu, malzeme tedariği ve kalite kontrol süreçlerini titizlikle yöneterek projeyi plana uygun şekilde hayata geçiririz.
                         </ApproachStepCard>
                         <ApproachStepCard number="04" title="Teslimat ve Garanti">
                             Projeyi zamanında teslim eder, yapılan tüm imalatlar için garanti sunar ve uzun vadeli bakım desteği sağlarız.
@@ -138,8 +141,9 @@ const CevreDuzenleme = () => {
             <section className="py-16 sm:py-24 bg-slate-100">
                 <div className="container mx-auto px-6">
                     <div className="max-w-3xl mb-12">
-                        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">İmza Projeler</h2>
-                        <p className="mt-3 text-lg text-slate-600">Planlama ve uygulama becerimizi sergileyen tamamlanmış projelerimiz.</p>
+                        {/* YAZI GÜNCELLENDİ */}
+                        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Referans Projelerimiz</h2>
+                        <p className="mt-3 text-lg text-slate-600">Yetkinliğimizi ve proje yönetimi anlayışımızı yansıtan tamamlanmış bazı çalışmalarımız.</p>
                     </div>
                     <div className="space-y-16">
                         {/* Proje 1 */}
@@ -167,11 +171,12 @@ const CevreDuzenleme = () => {
                            <div className="lg:pl-8 lg:order-2">
                                <p className="text-red-800 font-semibold mb-2">TİCARİ PROJE</p>
                                <h3 className="text-3xl font-bold text-slate-900 mb-4">Mesa Plaza, Maslak</h3>
-                               <p className="text-slate-600 mb-6">Yoğun yaya trafiğine sahip ofis plazası girişinde, hem estetik hem de dayanıklı malzemelerle prestijli bir karşılama alanı tasarlandı. Drenaj ve aydınlatma çözümleri önceliklendirildi.</p>
+                                {/* YAZI GÜNCELLENDİ */}
+                               <p className="text-slate-600 mb-6">Yoğun yaya trafiğine sahip ofis plazası girişinde, hem estetik hem de dayanıklı malzemelerle kurumsal bir karşılama alanı tasarlandı. Projede drenaj ve aydınlatma çözümlerine öncelik verildi.</p>
                                <div className="flex flex-wrap gap-3 text-sm">
-                                    <span className="bg-slate-200 text-slate-700 px-3 py-1 rounded-full font-medium">Doğal Taş Zemin</span>
-                                    <span className="bg-slate-200 text-slate-700 px-3 py-1 rounded-full font-medium">LED Aydınlatma</span>
-                                    <span className="bg-slate-200 text-slate-700 px-3 py-1 rounded-full font-medium">Oturma Grupları</span>
+                                   <span className="bg-slate-200 text-slate-700 px-3 py-1 rounded-full font-medium">Doğal Taş Zemin</span>
+                                   <span className="bg-slate-200 text-slate-700 px-3 py-1 rounded-full font-medium">LED Aydınlatma</span>
+                                   <span className="bg-slate-200 text-slate-700 px-3 py-1 rounded-full font-medium">Oturma Grupları</span>
                                </div>
                            </div>
                            <img src="/referans-proje-2.webp" alt="Mesa Plaza Referans Proje" className="rounded-xl shadow-xl w-full h-96 object-cover lg:order-1"/>
@@ -184,31 +189,32 @@ const CevreDuzenleme = () => {
             <section className="bg-white">
                 <div className="container mx-auto px-6 py-20">
                      <div className="bg-slate-800 text-white rounded-2xl p-10 sm:p-16 text-center">
-                         <motion.h2 
-                             className="text-3xl sm:text-4xl font-bold"
-                             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                         >
-                            Projenizin Potansiyelini Birlikte Değerlendirelim
-                         </motion.h2>
-                         <motion.p 
-                             className="mt-4 max-w-2xl mx-auto text-lg text-slate-300"
-                             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, delay: 0.1 }}
-                         >
-                            İster konsept aşamasında olun ister uygulamaya hazır, projenizin gereksinimlerini görüşmek ve size özel çözümlerimizi sunmak için buradayız.
-                         </motion.p>
-                         <motion.div 
-                             className="mt-10"
-                             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
-                         >
-                             <Link 
-                                 to="/iletisim"
-                                 className="inline-block px-10 py-4 font-bold text-lg text-white bg-red-800 rounded-md shadow-lg shadow-red-500/30 hover:bg-red-900 hover:scale-105 transform transition-all duration-300"
-                             >
-                                 UZMAN EKİBİMİZLE GÖRÜŞÜN
-                             </Link>
-                         </motion.div>
+                          <motion.h2 
+                              className="text-3xl sm:text-4xl font-bold"
+                              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                          >
+                               {/* YAZI GÜNCELLENDİ */}
+                              Projenizin Potansiyelini Birlikte Değerlendirelim
+                          </motion.h2>
+                          <motion.p 
+                              className="mt-4 max-w-2xl mx-auto text-lg text-slate-300"
+                              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, delay: 0.1 }}
+                          >
+                             Projenizin kapsamı ve hedefleri ne olursa olsun, ihtiyaçlarınızı dinlemek ve size en uygun çözümleri sunmak için hazırız.
+                          </motion.p>
+                          <motion.div 
+                              className="mt-10"
+                              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
+                          >
+                              <Link 
+                                  to="/iletisim"
+                                  className="inline-block px-10 py-4 font-bold text-lg text-white bg-red-800 rounded-md shadow-lg shadow-red-500/30 hover:bg-red-900 hover:scale-105 transform transition-all duration-300"
+                              >
+                                  UZMAN EKİBİMİZLE GÖRÜŞÜN
+                              </Link>
+                          </motion.div>
                      </div>
-                 </div>
+                </div>
             </section>
         </div>
     );

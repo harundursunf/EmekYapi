@@ -3,11 +3,12 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Zap, TrendingUp, Home, CheckCircle, ChevronRight, Layers, Hammer, PaintRoller, Users, Award, Clock } from 'lucide-react';
+// GÜNCELLEME: Yeni ikonlar eklendi
+import { ShieldCheck, Zap, TrendingUp, Home, CheckCircle, ChevronRight, Layers, Hammer, PaintRoller, Users, Award, Clock, Banknote, Thermometer } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import CountUp from 'react-countup';
 
-// Bileşen: Akordiyon (SSS)
+// Bileşen: Akordiyon (SSS) - DEĞİŞTİRİLMEDİ
 const FaqItem = ({ question, children }) => {
     const [isOpen, setIsOpen] = React.useState(false);
     return (
@@ -34,7 +35,7 @@ const FaqItem = ({ question, children }) => {
     );
 };
 
-// Bileşen: Önce & Sonra Karşılaştırma Kartı
+// Bileşen: Önce & Sonra Karşılaştırma Kartı - DEĞİŞTİRİLMEDİ
 const BeforeAfterCard = ({ beforeSrc, afterSrc, title }) => (
     <motion.div 
         className="relative aspect-[4/3] rounded-xl overflow-hidden shadow-2xl group border-4 border-white"
@@ -53,6 +54,20 @@ const BeforeAfterCard = ({ beforeSrc, afterSrc, title }) => (
     </motion.div>
 );
 
+// YENİ BİLEŞEN: İstatistik Kartı
+const StatCard = ({ icon, end, suffix, text }) => (
+    <motion.div 
+        variants={{ hidden: { opacity: 0, y:20 }, visible: { opacity: 1, y: 0 } }} 
+        className="text-center"
+    >
+        {icon}
+        <p className="text-3xl md:text-4xl font-extrabold text-indigo-600">
+            <CountUp end={end} duration={3} enableScrollSpy scrollSpyOnce />
+            {suffix}
+        </p>
+        <p className="text-sm text-slate-600 mt-1">{text}</p>
+    </motion.div>
+);
 
 const DisCepheMantolama = () => {
     
@@ -67,74 +82,60 @@ const DisCepheMantolama = () => {
     };
 
     const benefits = [
-        {
-            icon: <Zap size={30} className="text-indigo-600" />,
-            title: "Enerji Tasarrufu",
-            description: "Isıtma ve soğutma giderlerinizde %60'a varan oranda tasarruf sağlayarak faturalarınızı hafifletin."
-        },
-        {
-            icon: <TrendingUp size={30} className="text-indigo-600" />,
-            title: "Mülk Değeri Artışı",
-            description: "Modern ve yalıtımlı bir cephe, binanızın değerini ortalama %25'e kadar artırır."
-        },
-        {
-            icon: <Home size={30} className="text-indigo-600" />,
-            title: "Sağlıklı Yaşam Alanı",
-            description: "Nem, rutubet ve küf oluşumunu engelleyerek aileniz için daha sağlıklı bir ortam yaratın."
-        },
-        {
-            icon: <ShieldCheck size={30} className="text-indigo-600" />,
-            title: "Yapı Koruması",
-            description: "Binanızı dış etkenlerden koruyarak ömrünü uzatın ve bakım masraflarını azaltın."
-        }
+        { icon: <Zap size={30} className="text-indigo-600" />, title: "Enerji Tasarrufu", description: "Isıtma ve soğutma giderlerinizde %60'a varan oranda tasarruf sağlayarak faturalarınızı hafifletin." },
+        { icon: <TrendingUp size={30} className="text-indigo-600" />, title: "Mülk Değeri Artışı", description: "Modern ve yalıtımlı bir cephe, binanızın değerini ortalama %25'e kadar artırır." },
+        { icon: <Home size={30} className="text-indigo-600" />, title: "Sağlıklı Yaşam Alanı", description: "Nem, rutubet ve küf oluşumunu engelleyerek aileniz için daha sağlıklı bir ortam yaratın." },
+        { icon: <ShieldCheck size={30} className="text-indigo-600" />, title: "Yapı Koruması", description: "Binanızı dış etkenlerden koruyarak ömrünü uzatın ve bakım masraflarını azaltın." }
     ];
 
     return (
         <div className="bg-slate-50 text-slate-900 pt-[45px] overflow-x-hidden">
 
-            {/* BÖLÜM 1: GİRİŞ */}
+            {/* BÖLÜM 1: GİRİŞ - YAZILAR VE İSTATİSTİKLER GÜNCELLENDİ */}
             <header className="relative text-center py-24 sm:py-32 px-6">
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: `url('/resim6.webp')`, backgroundSize: 'cover', backgroundPosition: 'center'}}></div>
-                 <div className="absolute inset-0 bg-gradient-to-b from-white via-white/90 to-slate-50"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-white via-white/90 to-slate-50"></div>
                 <div className="relative z-10 max-w-4xl mx-auto">
                     <motion.p 
                         className="font-semibold text-indigo-600 uppercase tracking-wider mb-4"
                         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{delay: 0.2}}
                     >
-                        KONFOR VE TASARRUFUN ANAHTARI
+                        PROFESYONEL DIŞ CEPHE ÇÖZÜMLERİ
                     </motion.p>
                     <motion.h1 
                         className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight !leading-tight"
                         initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{delay: 0.4}}
                     >
-                        Yüksek Faturalara ve Konforsuz Odalara Veda Edin
+                        Binanızın Değerini Artırın, Yaşam Konforunuzu Yükseltin
                     </motion.h1>
                     <motion.p 
                         className="mt-6 max-w-2xl mx-auto text-lg text-slate-600"
                         initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{delay: 0.6}}
                     >
-                        Evinizin estetik değerini artırırken, yaşam kalitenizi yükselten ve kendini kısa sürede amorti eden akıllı bir yatırım yapın.
+                        Profesyonel dış cephe mantolama ile estetiği ve performansı birleştirerek kalıcı bir değere sahip olun.
                     </motion.p>
+                    
+                    {/* YENİ İSTATİSTİK BÖLÜMÜ */}
                     <motion.div 
-                        className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-x-6 gap-y-3 text-slate-700"
-                        initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{delay: 0.8}}
+                        className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-8 max-w-3xl mx-auto"
+                        variants={fadeIn} initial="hidden" animate="visible"
                     >
-                        <span className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" /> Maksimum Isı Yalıtımı</span>
-                        <span className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" /> Modern Görünüm</span>
-                        <span className="flex items-center"><CheckCircle className="w-5 h-5 text-green-500 mr-2" /> Değer Artışı</span>
+                        <StatCard icon={<Banknote size={32} className="mx-auto text-green-500 mb-2" />} end={60} suffix="%'a Varan" text="Enerji Tasarrufu" />
+                        <StatCard icon={<TrendingUp size={32} className="mx-auto text-blue-500 mb-2" />} end={25} suffix="%'e Varan" text="Mülk Değeri Artışı" />
+                        <StatCard icon={<Thermometer size={32} className="mx-auto text-orange-500 mb-2" />} end={100} suffix="%" text="Isı Konforu" />
                     </motion.div>
                 </div>
             </header>
 
-            {/* BÖLÜM 2: KARŞI KONULMAZ FAYDALAR */}
+            {/* BÖLÜM 2: FAYDALAR - YAZILAR GÜNCELLENDİ, TASARIM ORİJİNAL */}
             <section className="py-16 sm:py-20 bg-white">
                 <div className="container mx-auto px-6">
-                     <motion.div 
+                    <motion.div 
                         className="max-w-3xl mx-auto text-center mb-12"
                         variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }}
                     >
-                        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Mantolama Sadece Bir Tadilat Değil, Bir Yatırımdır</h2>
-                        <p className="mt-4 text-lg text-slate-600">Bu yatırımın size ve ailenize neler kazandıracağını keşfedin.</p>
+                        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Dış Cephe Mantolamanın Temel Avantajları</h2>
+                        <p className="mt-4 text-lg text-slate-600">Bu yatırımın size, ailenize ve mülkünüze somut olarak neler kazandıracağını keşfedin.</p>
                     </motion.div>
 
                     <motion.div 
@@ -153,21 +154,21 @@ const DisCepheMantolama = () => {
                             ))}
                         </div>
                         <motion.div variants={fadeIn} className="aspect-square rounded-xl overflow-hidden shadow-lg">
-                             <img src="/resim11.webp" alt="Mutlu Aile" className="w-full h-full object-cover" />
+                            <img src="/resim11.webp" alt="Mutlu Aile" className="w-full h-full object-cover" />
                         </motion.div>
                     </motion.div>
                 </div>
             </section>
             
-            {/* BÖLÜM 3: PROJE GALERİSİ - ÖNCE & SONRA */}
+            {/* BÖLÜM 3: GALERİ - YAZILAR GÜNCELLENDİ, TASARIM ORİJİNAL */}
             <section className="py-16 sm:py-20 bg-slate-50">
                 <div className="container mx-auto px-6">
                     <motion.div 
                         className="max-w-3xl mx-auto text-center mb-12"
                         variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }}
                     >
-                        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Dönüşümün Gücü: Önce & Sonra</h2>
-                        <p className="mt-4 text-lg text-slate-600">Kelimelerle anlatmak yerine, tamamladığımız işlerin konuşmasına izin veriyoruz. İşte Emek Yapı imzasıyla yeniden doğan binalar.</p>
+                        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Uygulama Örneklerimiz: Önce & Sonra</h2>
+                        <p className="mt-4 text-lg text-slate-600">Tamamladığımız projeler, kalite ve ustalık anlayışımızın en net göstergesidir.</p>
                     </motion.div>
                     <motion.div 
                         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
@@ -180,25 +181,23 @@ const DisCepheMantolama = () => {
                 </div>
             </section>
 
-            {/* BÖLÜM 4: DÖNÜŞÜM YOLCULUĞU */}
+            {/* BÖLÜM 4: SÜREÇ - YAZILAR GÜNCELLENDİ, TASARIM ORİJİNAL */}
             <section className="py-16 sm:py-20 bg-white">
                 <div className="container mx-auto px-6">
                     <motion.div 
                         className="max-w-3xl mx-auto text-center mb-16"
                         variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }}
                     >
-                        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">3 Adımda Kusursuz Dönüşüm</h2>
+                        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Şeffaf ve Planlı Proje Sürecimiz</h2>
                         <p className="mt-4 text-lg text-slate-600">Sürecin her anında şeffaf, planlı ve profesyonel bir hizmetle yanınızdayız.</p>
                     </motion.div>
                     
-                    {/* Süreç Adımları */}
-                     <div className="relative max-w-4xl mx-auto">
+                    <div className="relative max-w-4xl mx-auto">
                         <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-slate-200 hidden md:block" aria-hidden="true"></div>
                         
-                        {/* Adım 1 */}
                         <motion.div variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} className="md:grid grid-cols-2 gap-12 mb-12">
                             <div className="flex flex-col items-center md:items-end mb-4 md:mb-0">
-                                 <img src="/resim7.webp" alt="Keşif ve Analiz" className="rounded-lg shadow-xl w-full h-auto aspect-[4/3] object-cover"/>
+                                <img src="/resim7.webp" alt="Keşif ve Analiz" className="rounded-lg shadow-xl w-full h-auto aspect-[4/3] object-cover"/>
                             </div>
                             <div className="text-center md:text-left">
                                 <p className="text-indigo-600 font-semibold mb-2">ADIM 1</p>
@@ -212,9 +211,8 @@ const DisCepheMantolama = () => {
                             </div>
                         </motion.div>
                         
-                        {/* Adım 2 */}
                          <motion.div variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} className="md:grid grid-cols-2 gap-12 mb-12">
-                             <div className="text-center md:text-left md:order-2">
+                            <div className="text-center md:text-left md:order-2">
                                 <p className="text-indigo-600 font-semibold mb-2">ADIM 2</p>
                                 <h3 className="text-2xl font-bold mb-3">Usta Ellerde Uygulama</h3>
                                 <ul className="space-y-2 text-slate-600">
@@ -225,19 +223,18 @@ const DisCepheMantolama = () => {
                                 </ul>
                             </div>
                             <div className="flex flex-col items-center md:items-start mb-4 md:mb-0 md:order-1">
-                                 <img src="/resim4.webp" alt="Uygulama" className="rounded-lg shadow-xl w-full h-auto aspect-[4/3] object-cover"/>
+                                <img src="/resim4.webp" alt="Uygulama" className="rounded-lg shadow-xl w-full h-auto aspect-[4/3] object-cover"/>
                             </div>
                         </motion.div>
 
-                        {/* Adım 3 */}
                          <motion.div variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} className="md:grid grid-cols-2 gap-12">
-                             <div className="flex flex-col items-center md:items-end mb-4 md:mb-0">
-                                 <img src="/resim11.webp" alt="Teslimat ve Kontrol" className="rounded-lg shadow-xl w-full h-auto aspect-[4/3] object-cover"/>
+                            <div className="flex flex-col items-center md:items-end mb-4 md:mb-0">
+                                <img src="/resim11.webp" alt="Teslimat ve Kontrol" className="rounded-lg shadow-xl w-full h-auto aspect-[4/3] object-cover"/>
                             </div>
                             <div className="text-center md:text-left">
                                 <p className="text-indigo-600 font-semibold mb-2">ADIM 3</p>
                                 <h3 className="text-2xl font-bold mb-3">Kontrol, Teslimat ve Garanti</h3>
-                                 <ul className="space-y-2 text-slate-600">
+                                <ul className="space-y-2 text-slate-600">
                                     <li className="flex items-start"><CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />Detaylı son kontrol ve temizlik.</li>
                                     <li className="flex items-start"><CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />Projenin zamanında ve eksiksiz teslim edilmesi.</li>
                                     <li className="flex items-start"><CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />Uygulama ve malzeme garantisi belgelerinin sunulması.</li>
@@ -250,28 +247,28 @@ const DisCepheMantolama = () => {
                 </div>
             </section>
 
-            {/* BÖLÜM 5: KALİTE VE GÜVENCE */}
+            {/* BÖLÜM 5: KALİTE - YAZILAR GÜNCELLENDİ, TASARIM ORİJİNAL */}
             <section className="py-16 sm:py-20 bg-slate-50">
                 <div className="container mx-auto px-6">
                     <motion.div 
                         className="max-w-3xl mx-auto text-center mb-12"
                         variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.5 }}
                     >
-                        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Kalitemiz Tesadüf Değil, Bir Tercihtir</h2>
-                        <p className="mt-4 text-lg text-slate-600">Mükemmel sonuçlar için sadece kendini kanıtlamış, TSE ve CE belgeli lider markaların ürünlerini kullanıyor ve hizmet kalitemizle fark yaratıyoruz.</p>
+                        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Kalite ve Güvence Anlayışımız</h2>
+                        <p className="mt-4 text-lg text-slate-600">Mükemmel sonuçlar için sadece kendini kanıtlamış, TSE ve CE belgeli lider markaların ürünlerini kullanır ve hizmet kalitemizle fark yaratırız.</p>
                     </motion.div>
                     <motion.div 
                         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center"
                         variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}
                     >
-                         <div className="bg-white p-6 rounded-lg shadow-sm">
+                        <div className="bg-white p-6 rounded-lg shadow-sm">
                             <Users size={32} className="text-indigo-600 mx-auto mb-4" />
                             <h3 className="text-lg font-bold">Uzman Kadro</h3>
                             <p className="text-slate-600 text-sm mt-2">Alanında deneyimli, eğitimli ve sigortalı profesyonel ekipler.</p>
                         </div>
                         <div className="bg-white p-6 rounded-lg shadow-sm">
                             <Layers size={32} className="text-indigo-600 mx-auto mb-4" />
-                            <h3 className="text-lg font-bold">1. Sınıf Malzeme</h3>
+                            <h3 className="text-lg font-bold">Sertifikalı Malzeme</h3>
                             <p className="text-slate-600 text-sm mt-2">Yüksek yoğunluklu levhalar, esnek harçlar ve A kalite boyalar.</p>
                         </div>
                         <div className="bg-white p-6 rounded-lg shadow-sm">
@@ -281,14 +278,13 @@ const DisCepheMantolama = () => {
                         </div>
                          <div className="bg-white p-6 rounded-lg shadow-sm">
                             <Award size={32} className="text-indigo-600 mx-auto mb-4" />
-                            <h3 className="text-lg font-bold">Gerçek Garanti</h3>
+                            <h3 className="text-lg font-bold">Kapsamlı Garanti</h3>
                             <p className="text-slate-600 text-sm mt-2">Yaptığımız işin arkasındayız ve bunu yazılı garanti ile belgeleriz.</p>
                         </div>
                     </motion.div>
                     <motion.div className="mt-16 text-center text-slate-500" variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }}>
                         <p className="font-semibold text-lg text-slate-800 mb-4">Stratejik İş Ortaklarımız:</p>
                         <div className="flex justify-center items-center gap-x-8 sm:gap-x-12 grayscale opacity-70">
-                            {/* Gerçek marka logolarını buraya ekleyebilirsiniz */}
                              <p className="text-2xl font-bold font-sans">Filli Boya</p>
                              <p className="text-2xl font-bold font-sans">Weber</p>
                              <p className="text-2xl font-bold font-sans">BAUMIT</p>
@@ -297,7 +293,7 @@ const DisCepheMantolama = () => {
                 </div>
             </section>
             
-            {/* BÖLÜM 6: SSS */}
+            {/* BÖLÜM 6: SSS - YAZILAR GÜNCELLENDİ, TASARIM ORİJİNAL */}
             <section className="py-16 sm:py-20 bg-white">
                 <div className="container mx-auto px-6 max-w-4xl">
                     <motion.div 
@@ -309,13 +305,13 @@ const DisCepheMantolama = () => {
                     </motion.div>
                     <motion.div variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }}>
                         <FaqItem question="Bu yatırım kendini ne kadar sürede amorti eder?">
-                             <p>Sağlanan enerji tasarrufu sayesinde mantolama yatırımı, binanın konumuna ve yalıtım ihtiyacına bağlı olarak ortalama 3 ila 6 yıl arasında kendini tamamen geri ödemektedir. Sonraki yıllar sizin için net kârdır.</p>
+                            <p>Sağlanan enerji tasarrufu sayesinde mantolama yatırımı, binanın konumuna ve yalıtım ihtiyacına bağlı olarak ortalama 3 ila 5 yıl arasında kendini tamamen geri ödemektedir.</p>
                         </FaqItem>
                         <FaqItem question="Uygulama ne kadar sürer ve bu süreçte evde yaşayabilir miyiz?">
-                             <p>Projenin büyüklüğüne bağlı olarak bir uygulama ortalama 3-6 hafta sürer. Tüm çalışmalar binanın dışından yürütüldüğü için günlük yaşamınızı etkilemez ve evinizde konforla yaşamaya devam edebilirsiniz.</p>
+                            <p>Projenin büyüklüğüne bağlı olarak bir uygulama ortalama 3-6 hafta sürer. Tüm çalışmalar binanın dışından yürütüldüğü için günlük yaşamınız etkilenmez ve evinizde konforla yaşamaya devam edebilirsiniz.</p>
                         </FaqItem>
-                        <FaqItem question="Emek Yapı'yı diğerlerinden ayıran en önemli özellik nedir?">
-                            <p>Biz sadece sıva ve boya yapmıyoruz; biz bir mühendislik ve tasarım hizmeti sunuyoruz. Doğru malzeme seçimi, detaylara verdiğimiz önem (pencere kenarları, köşe birleşimleri) ve işimizi bir sanat olarak görmemiz, bizi farklı kılan en temel özelliklerdir. Verdiğimiz kapsamlı garanti, bu özgüvenimizin bir kanıtıdır.</p>
+                        <FaqItem question="Sizi diğer firmalardan ayıran nedir?">
+                            <p>İki temel farkımız var: Birincisi, işe mühendislik yaklaşımıyla başlayıp ısı kamerası gibi teknik analizler kullanmamız. İkincisi ise uygulama sırasında pencere kenarları, köşe birleşimleri gibi kritik detaylara gösterdiğimiz titizliktir. Bu, uzun ömürlü ve sorunsuz bir yalıtım sağlar.</p>
                         </FaqItem>
                         <FaqItem question="Devlet teşviki veya yalıtım kredisi imkanları var mı?">
                             <p>Evet, Enerji Verimliliği Kanunu kapsamında apartman yönetimleri bankalardan uygun koşullu "Eko Kredi" veya "Yalıtım Kredisi" kullanabilmektedir. Bu süreçte size danışmanlık yaparak en doğru finansman modelini bulmanıza yardımcı oluyoruz.</p>
@@ -324,32 +320,28 @@ const DisCepheMantolama = () => {
                 </div>
             </section>
             
-            {/* BÖLÜM 7: SON ÇAĞRI - HAREKETE GEÇİRME */}
+            {/* BÖLÜM 7: SON ÇAĞRI - YAZILAR GÜNCELLENDİ, TASARIM ORİJİNAL */}
             <section className="bg-indigo-600 text-white">
                 <div className="container mx-auto px-6 py-20 text-center">
-                    <motion.h2 
-                        className="text-3xl sm:text-4xl font-extrabold"
-                        variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                    >
-                        Daha Fazla Ertelemeyin
-                    </motion.h2>
-                    <motion.p 
-                        className="mt-4 max-w-3xl mx-auto text-lg text-indigo-200"
-                        variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                    >
-                        Her geçen gün, havaya uçan paranız, azalan konforunuz ve yaşlanan binanız demek. Konforlu bir geleceğe, daha düşük faturalara ve değeri artmış bir mülke atılacak ilk adım, sadece bir tık uzağınızda.
-                    </motion.p>
-                    <motion.div 
-                        className="mt-10"
-                        initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
-                    >
-                        <Link 
-                            to="/iletisim"
-                            className="inline-block px-10 py-4 font-bold text-lg text-indigo-600 bg-white rounded-lg shadow-2xl hover:bg-slate-100 hover:scale-105 transform transition-all duration-300"
+                    <motion.div variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                        <h2 className="text-3xl sm:text-4xl font-extrabold">
+                            Binanız İçin Doğru Kararı Verin
+                        </h2>
+                        <p className="mt-4 max-w-2xl mx-auto text-lg text-indigo-200">
+                            Değeri artan bir mülk, daha düşük faturalar ve konforlu bir yaşam alanı için ilk adımı atın. Uzman ekibimizle tanışın, binanız için en doğru çözümü birlikte planlayalım.
+                        </p>
+                        <motion.div 
+                            className="mt-10"
+                            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
                         >
-                            ÜCRETSİZ KEŞİF ve TEKLİF AL
-                        </Link>
-                        <p className="mt-4 text-sm text-indigo-300">Hiçbir zorunluluk yok, söz!</p>
+                            <Link 
+                                to="/iletisim"
+                                className="inline-block px-10 py-4 font-bold text-lg text-indigo-600 bg-white rounded-lg shadow-2xl hover:bg-slate-100 hover:scale-105 transform transition-all duration-300"
+                            >
+                                ÜCRETSİZ KEŞİF ve TEKLİF AL
+                            </Link>
+                            <p className="mt-4 text-sm text-indigo-300">Talebiniz tamamen ücretsiz ve bağlayıcı değildir.</p>
+                        </motion.div>
                     </motion.div>
                 </div>
             </section>

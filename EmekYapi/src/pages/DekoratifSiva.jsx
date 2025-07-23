@@ -62,19 +62,20 @@ const DekoratifSiva = () => {
     return (
         <div className="bg-slate-50 text-slate-800 pt-[46px] overflow-x-hidden">
              <AnimatePresence>
-                {selectedTexture && <Lightbox texture={selectedTexture} onClose={() => setSelectedTexture(null)} />}
+                 {selectedTexture && <Lightbox texture={selectedTexture} onClose={() => setSelectedTexture(null)} />}
             </AnimatePresence>
 
             {/* BÖLÜM 1: GİRİŞ */}
             <header className="container mx-auto px-6 py-16 sm:py-20">
                 <div className="grid md:grid-cols-2 gap-10 items-center">
                     <motion.div variants={fadeIn} initial="hidden" animate="visible">
-                        <motion.p variants={fadeIn} className="font-semibold text-amber-600 uppercase tracking-wider mb-3">DUVARLARDA SANATSAL DOKUNUŞLAR</motion.p>
+                        {/* YAZI GÜNCELLENDİ */}
+                        <motion.p variants={fadeIn} className="font-semibold text-amber-600 uppercase tracking-wider mb-3">MEKANINIZA ÖZEL DOKUSAL ÇÖZÜMLER</motion.p>
                         <motion.h1 variants={fadeIn} className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 !leading-tight">
-                            Mekanınıza Karakter Katın
+                            Duvarlarınızı Sanat Eserine Dönüştürün
                         </motion.h1>
                         <motion.p variants={fadeIn} className="mt-5 max-w-lg text-lg text-slate-600">
-                            Sıradan boya ve duvar kağıtlarının ötesine geçin. El işçiliğiyle uygulanan, her biri eşsiz ve sanatsal dekoratif sıva çözümleriyle mekanlarınıza kimlik ve derinlik kazandırın.
+                            Standart duvar kaplamalarının yerine, el işçiliğiyle uygulanan ve her biri özgün bir karaktere sahip dekoratif sıva çözümleriyle mekanlarınıza kimlik ve derinlik kazandırın.
                         </motion.p>
                     </motion.div>
                     <motion.div 
@@ -91,8 +92,9 @@ const DekoratifSiva = () => {
             <section className="py-16 sm:py-20 bg-slate-100">
                 <div className="container mx-auto px-6">
                     <div className="max-w-3xl mx-auto text-center mb-12">
+                        {/* YAZI GÜNCELLENDİ */}
                         <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">İmza Doku Koleksiyonumuz</h2>
-                        <p className="mt-4 text-lg text-slate-600">Her zevke ve mekana uygun, zengin doku ve efekt seçeneklerimizi keşfedin. Beğendiğiniz görselin üzerine tıklayarak daha yakından inceleyin.</p>
+                        <p className="mt-4 text-lg text-slate-600">Farklı zevklere ve mekanlara hitap eden zengin doku koleksiyonumuzu keşfedin. Detayları görmek için görsellerin üzerine tıklayabilirsiniz.</p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {textures.map((texture) => (
@@ -121,11 +123,12 @@ const DekoratifSiva = () => {
                 </div>
             </section>
             
-            {/* BÖLÜM 3: NEDEN DEKORATİF SIVA? */}
+            {/* BÖLÜM 3: AVANTAJLAR */}
             <section className="py-16 sm:py-20 bg-white">
                 <div className="container mx-auto px-6">
                     <div className="max-w-3xl mx-auto text-center mb-12">
-                        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Sıradanlıktan Sanatsallığa Geçiş</h2>
+                        {/* YAZI GÜNCELLENDİ */}
+                        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Dekoratif Sıvanın Sunduğu Ayrıcalıklar</h2>
                         <p className="mt-4 text-lg text-slate-600">Dekoratif sıva, duvarlarınıza sadece renk değil; doku, derinlik ve kalıcı bir karakter kazandırır.</p>
                     </div>
                     <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -153,8 +156,9 @@ const DekoratifSiva = () => {
                  <div className="container mx-auto px-6">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <div className="max-w-lg">
-                             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Malzeme Değil, Sanatçı Vizyonu</h2>
-                             <p className="mt-4 text-lg text-slate-300 leading-relaxed">Dekoratif sıva uygulaması, bir ustadan daha fazlasını, bir sanatçıyı gerektirir. Sertifikalı uygulayıcılarımız, her mekanı bir tuval olarak görür ve duvarlarınıza mala darbeleriyle ruh katar.</p>
+                             {/* YAZI GÜNCELLENDİ */}
+                             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Ustalık ve Sanatın Birleşimi</h2>
+                             <p className="mt-4 text-lg text-slate-300 leading-relaxed">Dekoratif sıva uygulaması, teknik bilgi kadar sanatsal bir vizyon da gerektirir. Sertifikalı uygulayıcılarımız, her mekanı bir tuval olarak değerlendirir ve malzeme bilgisi ile estetik anlayışını birleştirerek özgün yüzeyler oluşturur.</p>
                              <div className="mt-8 space-y-4">
                                 <div className="flex items-center gap-3">
                                     <Award className="w-6 h-6 text-amber-400 flex-shrink-0"/>
@@ -164,14 +168,14 @@ const DekoratifSiva = () => {
                                     <Palette className="w-6 h-6 text-amber-400 flex-shrink-0"/>
                                     <span>Premium İtalyan ve Yerli Malzemeler</span>
                                 </div>
-                                 <div className="flex items-center gap-3">
+                                <div className="flex items-center gap-3">
                                     <Layers className="w-6 h-6 text-amber-400 flex-shrink-0"/>
                                     <span>Tozsuz, Temiz ve Titiz Çalışma Prensibi</span>
                                 </div>
                              </div>
                         </div>
                         <div>
-                             <img src="/usta.webp" alt="Dekoratif sıva ustası" className="rounded-xl object-cover w-full h-full aspect-[4/3] shadow-2xl" />
+                            <img src="/usta.webp" alt="Dekoratif sıva ustası" className="rounded-xl object-cover w-full h-full aspect-[4/3] shadow-2xl" />
                         </div>
                     </div>
                  </div>
@@ -180,11 +184,12 @@ const DekoratifSiva = () => {
             {/* BÖLÜM 5: SON ÇAĞRI */}
             <section className="bg-amber-500 text-white">
                 <div className="container mx-auto px-6 py-16 text-center">
+                    {/* YAZI GÜNCELLENDİ */}
                     <h2 className="text-3xl sm:text-4xl font-extrabold">
-                        Dokuyu Hissedin, Farkı Görün
+                        Hayalinizdeki Dokuyu Mekanınıza Taşıyın
                     </h2>
                     <p className="mt-3 max-w-2xl mx-auto text-lg text-amber-100">
-                        Hayalinizdeki dokuyu ve rengi mekanınızda canlandırmak için ilk adımı atın. Ücretsiz keşif hizmetimizle tanışın, size özel numune ve tasarımlarımızı sunalım.
+                        Mekanınız için en uygun doku ve renk seçeneklerini birlikte belirleyelim. Ücretsiz keşif hizmetimiz kapsamında size özel numune ve tasarım alternatifleri sunmak için bizimle iletişime geçin.
                     </p>
                     <div className="mt-8">
                         <Link 

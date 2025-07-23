@@ -14,6 +14,7 @@ import {
     Download,
     HelpCircle
 } from 'lucide-react';
+
 // Animasyonları tetiklemek için kullandığımız özel Hook
 const useInView = (options) => {
     const [isInView, setIsInView] = useState(false);
@@ -54,6 +55,35 @@ function Anasayfa() {
         { id: 2, image: '/resim2.webp', title: 'Londra DoubleTree Hilton: Her Hava Koşuluna Uygun Teras Alanı', tags: ['Ticari', 'Isı Yalıtım', 'Birleşik Krallık'], link: '/projeler/london-hilton' },
         { id: 3, image: '/resim4.webp', title: 'İstanbul Konut Projesi: Modern ve Estetik Cepheler', tags: ['Konut', 'Mantolama', 'Türkiye'], link: '/projeler/istanbul-konut' }
     ];
+
+    // GÜNCELLEME: Hizmetler listesi isteğiniz doğrultusunda değiştirildi.
+    const services = [
+        {
+            image: '/mantolama.png',
+            title: 'Dış Cephe Mantolama',
+            subtitle: 'Enerji Verimliliği ve Estetik',
+            link: '/dis-cephe-mantolama'
+        },
+        {
+            image: '/tadilatboya.png',
+            title: 'Tadilat & Boya',
+            subtitle: 'Yenileme ve Değer Katma',
+            link: '/tadilat-ve-boya'
+        },
+        {
+            image: '/Dekoratifsiva.png',
+            title: 'Dekoratif Sıva',
+            subtitle: 'Sanatsal ve Eşsiz Yüzeyler',
+            link: '/dekoratif-siva'
+        },
+        {
+            image: '/filelisiva.png',
+            title: 'Fileli Sıva',
+            subtitle: 'Dayanıklılık ve Sağlam Zemin',
+            link: '/fileli-siva'
+        }
+    ];
+
     const partners = [
         { name: 'Filli Boya', logo: '/filli.png' }, { name: 'Fawori', logo: '/filli.png' },
         { name: 'Polisan', logo: '/filli.png' }, { name: 'Weber', logo: '/filli.png' },
@@ -79,13 +109,13 @@ function Anasayfa() {
 
     return (
         <div className="bg-white text-gray-800 antialiased">
-            {/* BÖLÜM 1: GİRİŞ (HERO) - Yüksekliği sabit kalacak */}
+            {/* BÖLÜM 1: GİRİŞ (HERO) */}
             <section ref={heroRef} className="relative flex h-screen items-center justify-center text-center">
                 <div className="absolute inset-0 z-0 overflow-hidden"><video autoPlay loop muted playsInline className="h-full w-full object-cover"><source src="/videoAnasayfa.mp4" type="video/mp4" />Tarayıcınız video etiketini desteklemiyor.</video><div className="absolute inset-0 bg-black/40"></div></div>
                 <div className={`relative z-10 p-4 text-white transition-all duration-1000 ease-out ${heroInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}><h1 className="text-5xl font-bold tracking-tight md:text-8xl">{projectName}</h1><p className="mt-4 text-2xl text-gray-200">Hayatınızın manzarası, evim dediğiniz yerde.</p></div>
             </section>
 
-            {/* BÖLÜM 2: VİZYON - Standart yükseklik: py-24 */}
+            {/* BÖLÜM 2: VİZYON */}
             <section ref={visionRef} className="py-24 bg-gray-50">
                 <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                     <div className={`transition-all duration-1000 ease-out ${visionInView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}><h2 className="text-4xl font-bold text-gray-900 md:text-5xl leading-tight">Sadece bir dış cephe değil, kalıcı değerler inşa ediyoruz.</h2><p className="mt-6 text-lg text-gray-600">Emek Yapı, modern teknolojiyi ve usta işçiliği birleştirerek yapılarınıza estetik, dayanıklılık ve enerji verimliliği katıyor.</p></div>
@@ -93,14 +123,14 @@ function Anasayfa() {
                 </div>
             </section>
 
-            {/* BÖLÜM 3: MİMARİ SLIDER - Yüksekliği özel kalacak */}
+            {/* BÖLÜM 3: MİMARİ SLIDER */}
             <section ref={archRef} className=" py-24 relative h-[75vh] bg-black text-white overflow-hidden">
                 {slides.map((slide, index) => (<motion.div key={index} className="absolute top-0 left-0 h-full w-full" initial={{ opacity: 0, scale: 1.05 }} animate={{ opacity: index === currentIndex ? 1 : 0, scale: index === currentIndex ? 1 : 1.05 }} transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }} ><img src={slide.image} alt={slide.title} className="h-full w-full object-cover" loading="lazy" /><div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div></motion.div>))}
                 <div className="absolute bottom-0 left-0 right-0 p-8 bg-black/30 backdrop-blur-md"><div className="container mx-auto flex justify-between items-end"><motion.div key={currentIndex} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }} className="w-full md:w-1/2"><h2 className="text-3xl md:text-4xl font-bold">{slides[currentIndex].title}</h2><p className="mt-2 text-base md:text-lg text-gray-300">{slides[currentIndex].description}</p></motion.div><div className="hidden md:flex items-center gap-6"><div className="font-mono text-xl"><span className="font-bold">{String(currentIndex + 1).padStart(2, '0')}</span><span className="text-gray-400 mx-2">/</span><span className="text-gray-400">{String(slides.length).padStart(2, '0')}</span></div><div className="flex items-center gap-2"><button onClick={goToPrevious} aria-label="Önceki Slayt" className="p-3 border border-white/30 rounded-full hover:bg-white/10 transition-colors"><ArrowLeft size={20} /></button><button onClick={goToNext} aria-label="Sonraki Slayt" className="p-3 border border-white/30 rounded-full hover:bg-white/10 transition-colors"><ArrowRight size={20} /></button></div></div></div></div>
                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/20"><motion.div className="h-full bg-white" style={{ transformOrigin: 'left' }} initial={{ scaleX: 0 }} animate={progressControls} /></div>
             </section>
 
-            {/* BÖLÜM 4: HAKKIMIZDA - Standart yükseklik: py-24 */}
+            {/* BÖLÜM 4: HAKKIMIZDA */}
             <section ref={aboutRef} className="py-24 bg-white overflow-hidden">
                 <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <motion.div initial={{ opacity: 0, x: -50 }} animate={aboutInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.8, ease: "easeOut" }} >
@@ -117,63 +147,34 @@ function Anasayfa() {
                         </div>
                     </motion.div>
                     <motion.div className="w-full h-full" initial={{ opacity: 0, scale: 0.9 }} animate={aboutInView ? { opacity: 1, scale: 1 } : {}} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }} >
-                        <img src="/resim14.webp" alt="Tecrübeli Ekip" className="w-full h-full object-cover rounded-xl shadow-2xl aspect-square" loading="lazy" />
+                        <img src="/emek.png" alt="Tecrübeli Ekip" className="w-full h-full object-cover rounded-xl shadow-2xl aspect-square" loading="lazy" />
                     </motion.div>
                 </div>
             </section>
 
-            {/* BÖLÜM 5: HİZMETLER VE ÇÖZÜMLER (YENİ TASARIM) */}
+            {/* BÖLÜM 5: HİZMETLER VE ÇÖZÜMLER (GÜNCELLENDİ) */}
             <section ref={detailsRef} className="py-24 bg-gray-50">
                 <div className="container mx-auto px-6">
-                    {/* Bölüm Başlığı */}
                     <div className={`text-center transition-all duration-1000 ease-out ${detailsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                         <h2 className="text-5xl font-bold text-gray-900 tracking-tighter">Hizmetlerimiz ve Çözümlerimiz</h2>
                         <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">Yapılarınıza değer katan, estetik ve fonksiyonel dış cephe çözümleri sunuyoruz.</p>
                     </div>
 
-                    {/* Hizmet Kartları Grid'i */}
                     <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {[
-                            {
-                                image: '/resim9.webp',
-                                title: 'Giyotin Cam',
-                                subtitle: 'Dikey Hareketli Cam Sistemi',
-                                link: '/hizmetler/giyotin-cam'
-                            },
-                            {
-                                image: '/resim10.webp',
-                                title: 'Isı Yalıtımı',
-                                subtitle: 'Mantolama Çözümleri',
-                                link: '/hizmetler/isi-yalitimi'
-                            },
-                            {
-                                image: '/resim11.webp',
-                                title: 'Pergola Sistemleri',
-                                subtitle: 'Modern Gölgelendirme',
-                                link: '/hizmetler/pergola'
-                            },
-                            {
-                                image: '/resim12.webp',
-                                title: 'Tadilat & Dekorasyon',
-                                subtitle: 'Yaşam Alanı Yenileme',
-                                link: '/hizmetler/tadilat'
-                            },
-                        ].map((service, index) => (
+                        {/* GÜNCELLEME: Hizmet kartları yeni liste ile map ediliyor. */}
+                        {services.map((service, index) => (
                             <div
                                 key={index}
                                 className={`transition-all duration-700 ease-out ${detailsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                                 style={{ transitionDelay: `${index * 100}ms` }}
                             >
                                 <div className="group relative h-96 w-full overflow-hidden rounded-xl shadow-lg">
-                                    {/* Arkaplan Resmi */}
                                     <img
                                         src={service.image}
                                         alt={service.title}
                                         className="absolute h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                                         loading="lazy"
                                     />
-
-                                    {/* Üst Katman (Gradient, Metin ve Buton) */}
                                     <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/30 to-transparent p-6">
                                         <div>
                                             <h3 className="text-2xl font-bold text-white">{service.title}</h3>
@@ -195,7 +196,7 @@ function Anasayfa() {
                 </div>
             </section>
 
-            {/* BÖLÜM 6: ÖNE ÇIKAN PROJELER - Standart yükseklik: py-24 */}
+            {/* BÖLÜM 6: ÖNE ÇIKAN PROJELER */}
             <section ref={projectsRef} className="py-24 bg-white">
                 <div className="container mx-auto px-6">
                     <div className={`flex flex-col md:flex-row justify-between md:items-center gap-4 mb-12 transition-all duration-1000 ease-out ${projectsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -221,7 +222,7 @@ function Anasayfa() {
                 </div>
             </section>
 
-            {/* BÖLÜM 7: ÇÖZÜM ORTAKLARI (YENİ TASARIM) */}
+            {/* BÖLÜM 7: ÇÖZÜM ORTAKLARI */}
             <section ref={partnersRef} className="py-24 bg-gray-50">
                 <div className="container mx-auto px-6 text-center">
                     <div className={`transition-all duration-1000 ease-out ${partnersInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -230,15 +231,7 @@ function Anasayfa() {
                     </div>
                 </div>
 
-                {/* Kayan Logo Şeridi */}
-                <div
-                    className={`
-            mt-16 w-full 
-            inline-flex flex-nowrap overflow-hidden 
-            [mask-image:_linear-gradient(to_right,transparent_0,_black_10%,_black_90%,transparent_100%)]
-            transition-opacity duration-1000 ease-out delay-300 ${partnersInView ? 'opacity-100' : 'opacity-0'}
-        `}
-                >
+                <div className={`mt-16 w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_10%,_black_90%,transparent_100%)] transition-opacity duration-1000 ease-out delay-300 ${partnersInView ? 'opacity-100' : 'opacity-0'}`}>
                     <ul className="flex items-center justify-center md:justify-start [&_li]:mx-10 [&_img]:max-w-none animate-scroll">
                         {partners.map((partner, index) => (
                             <li key={`partner-${index}`}>
@@ -246,7 +239,6 @@ function Anasayfa() {
                             </li>
                         ))}
                     </ul>
-                    {/* Sonsuz döngü için klonlanmış liste */}
                     <ul className="flex items-center justify-center md:justify-start [&_li]:mx-10 [&_img]:max-w-none animate-scroll" aria-hidden="true">
                         {partners.map((partner, index) => (
                             <li key={`partner-clone-${index}`}>
@@ -257,10 +249,9 @@ function Anasayfa() {
                 </div>
             </section>
 
-            {/* BÖLÜM 8: SON ÇAĞRI (CTA) - YENİ TASARIM */}
+            {/* BÖLÜM 8: SON ÇAĞRI (CTA) */}
             <section ref={ctaRef} className="py-24 bg-gray-50">
                 <div className="container mx-auto px-6">
-                    {/* Ana Başlık */}
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         animate={ctaInView ? { opacity: 1, y: 0 } : {}}
@@ -270,9 +261,7 @@ function Anasayfa() {
                         İletişime Geçin
                     </motion.h2>
 
-                    {/* İki Kartlı Yapı */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        {/* Sol Kart: Bize Ulaşın */}
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             animate={ctaInView ? { opacity: 1, y: 0 } : {}}
@@ -294,8 +283,6 @@ function Anasayfa() {
                                 </Link>
                             </div>
                         </motion.div>
-
-                        {/* Sağ Kart: Kaynaklar */}
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             animate={ctaInView ? { opacity: 1, y: 0 } : {}}
