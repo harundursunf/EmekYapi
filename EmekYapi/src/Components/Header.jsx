@@ -13,7 +13,7 @@ const menuItems = [
     ],
     featured: { to: "/mantolama", image: "/x1.jpg", title: "Dış Cephe Mantolama", description: "Enerji verimliliğinde lider çözümlerle tanışın.", }},
     { name: "Şirketimiz", icon: <Building size={16} />, subItems: [
-        { to: "/sirketimiz", icon: <Building size={20} className="text-amber-500"/>, title: "Hakkımızda", description: "Hikayemiz, vizyonumuz ve değerlerimiz." },
+        { to: "/hakkimizda", icon: <Building size={20} className="text-amber-500"/>, title: "Hakkımızda", description: "Hikayemiz, vizyonumuz ve değerlerimiz." },
         { to: "/sorular", icon: <HelpCircle size={20} className="text-amber-500"/>, title: "Sıkça Sorulan Sorular", description: "Aklınızdaki soruların cevapları." },
     ]}
 ];
