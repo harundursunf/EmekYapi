@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { MapPin, Layers3, TrendingUp, Square, BedDouble, ArrowRight, CheckCircle, Building, Users } from 'lucide-react';
 import clsx from 'clsx';
 
-// GÜNCELLEME: Proje Kartı Bileşeni Yeniden Tasarlandı
+// Proje Kartı Bileşeni
 const ProjectCard = ({ project }) => {
     const statusClass = project.status === 'Satışta' ? 'bg-green-100 text-green-800' : 'bg-stone-100 text-stone-800';
     const slug = project.title.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]/g, '');
@@ -38,7 +38,7 @@ const ProjectCard = ({ project }) => {
     );
 };
 
-// GÜNCELLEME: Değer Kartı Bileşeni
+// Değer Kartı Bileşeni
 const ValueCard = ({ icon, title, children }) => (
      <motion.div 
         className="flex items-start gap-4"
@@ -54,11 +54,12 @@ const ValueCard = ({ icon, title, children }) => (
 
 
 function YapSat() {
+    // GÜNCELLEME: Proje objelerinden "id" alanı kaldırıldı.
     const projects = [
-        { id: 1, image: '/x1.jpg', title: 'Emek Yapı Konakları', location: 'İstanbul, Çekmeköy', status: 'Satışta', area: '180 m²', rooms: '3+1 Dubleks', description: 'Doğayla iç içe, modern ve lüks bir yaşam sunan projemiz, geniş sosyal donatıları ve eşsiz mimarisiyle öne çıkıyor.' },
-        { id: 2, image: '/x1.jpg', title: 'Marina Rezidans', location: 'İzmir, Mavişehir', status: 'Tamamlandı', area: '125 m²', rooms: '2+1', description: 'Deniz manzaralı, akıllı ev teknolojileriyle donatılmış, şehrin merkezinde prestijli bir yaşam alanı.' },
-        { id: 3, image: '/x1.jpg', title: 'Ankara Loft', location: 'Ankara, Çankaya', status: 'Satışta', area: '95 m²', rooms: '1+1', description: 'Başkentin kalbinde, minimalist tasarımı ve fonksiyonel iç mekanlarıyla modern profesyoneller için tasarlandı.' },
-        { id: 4, image: '/x1.jpg', title: 'Çamlıca Villaları', location: 'İstanbul, Üsküdar', status: 'Tamamlandı', area: '320 m²', rooms: '5+2 Tripleks', description: 'Geleneksel mimariyi modern konforla birleştiren, İstanbul manzaralı özel aile villaları.' },
+        { image: '/x1.jpg', title: 'Emek Yapı Konakları', location: 'İstanbul, Çekmeköy', status: 'Satışta', area: '180 m²', rooms: '3+1 Dubleks', description: 'Doğayla iç içe, modern ve lüks bir yaşam sunan projemiz, geniş sosyal donatıları ve eşsiz mimarisiyle öne çıkıyor.' },
+        { image: '/x1.jpg', title: 'Marina Rezidans', location: 'İzmir, Mavişehir', status: 'Tamamlandı', area: '125 m²', rooms: '2+1', description: 'Deniz manzaralı, akıllı ev teknolojileriyle donatılmış, şehrin merkezinde prestijli bir yaşam alanı.' },
+        { image: '/x1.jpg', title: 'Ankara Loft', location: 'Ankara, Çankaya', status: 'Satışta', area: '95 m²', rooms: '1+1', description: 'Başkentin kalbinde, minimalist tasarımı ve fonksiyonel iç mekanlarıyla modern profesyoneller için tasarlandı.' },
+        { image: '/x1.jpg', title: 'Çamlıca Villaları', location: 'İstanbul, Üsküdar', status: 'Tamamlandı', area: '320 m²', rooms: '5+2 Tripleks', description: 'Geleneksel mimariyi modern konforla birleştiren, İstanbul manzaralı özel aile villaları.' },
     ];
 
     const featuredProject = projects[0];
@@ -73,7 +74,7 @@ function YapSat() {
 
     return (
         <div className="bg-white text-gray-800 pt-[80px]">
-            {/* BÖLÜM 1: GİRİŞ (YENİDEN TASARLANDI) */}
+            {/* BÖLÜM 1: GİRİŞ */}
             <section className="bg-gray-50">
                 <div className="container mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center">
                     <motion.div
@@ -105,7 +106,7 @@ function YapSat() {
                 </div>
             </section>
 
-            {/* BÖLÜM 2: PROJE GALERİSİ (YENİDEN TASARLANDI) */}
+            {/* BÖLÜM 2: PROJE GALERİSİ */}
             <section className="bg-white py-24">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-12">
@@ -136,13 +137,14 @@ function YapSat() {
                         animate="visible"
                     >
                         {filteredProjects.map((project) => (
-                            <ProjectCard key={project.id} project={project} />
+                            // GÜNCELLEME: key olarak project.id yerine project.title kullanıldı.
+                            <ProjectCard key={project.title} project={project} />
                         ))}
                     </motion.div>
                 </div>
             </section>
 
-            {/* BÖLÜM 3: DEĞER VURGULARI (YENİDEN TASARLANDI) */}
+            {/* BÖLÜM 3: DEĞER VURGULARI */}
             <section className="bg-gray-50 py-24">
                 <div className="container mx-auto px-6">
                      <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -165,7 +167,7 @@ function YapSat() {
                 </div>
             </section>
 
-             {/* BÖLÜM 4: SON ÇAĞRI (YENİ BÖLÜM) */}
+             {/* BÖLÜM 4: SON ÇAĞRI */}
             <section className="bg-blue-700 text-white">
                 <div className="container mx-auto px-6 py-20 text-center">
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
