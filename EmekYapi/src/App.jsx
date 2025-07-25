@@ -27,6 +27,7 @@ import DekoratifSiva from './pages/DekoratifSiva';
 import FileliSiva from './pages/FileliSiva';
 import CevreDuzenleme from './pages/CevreDuzenleme';
 import PeyzajIsleri from './pages/PeyzajIsleri';
+import ProjeDetay from './pages/ProjeDetay';
 
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
             <Route path="/fileli-siva" element={<FileliSiva />} />
             <Route path="/cevre-duzenleme" element={<CevreDuzenleme />} />
             <Route path="/peyzaj-isleri" element={<PeyzajIsleri />} />
+              <Route path="/projeler/:projeSlug" element={<ProjeDetay />} />
             
           </Routes>
         </main>
